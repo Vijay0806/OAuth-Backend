@@ -11,42 +11,22 @@ import {
 
 const router = express.Router();
 
-// router.get('/google', googleAuth);
-// router.get('/google/callback', authCallback('google'), redirectProfile);
+router.get('/google', googleAuth);
+router.get('/google/callback', authCallback('google'), redirectProfile);
 
-router.get(
-   '/google',
-   passport.authenticate('google', { scope: ['profile', 'email'] }) // Specify the required scopes
- );
- 
- router.get(
-   '/google/callback',
-   passport.authenticate('google', { failureRedirect: '/' }), // Automatically handles OAuth response
-   (req, res) => {
-     // Redirect to the profile page or another protected route after login
-     res.redirect('/profile');
-   }
- );
- 
 // router.get(
-//   '/google/callback',
-//   (req, res, next) => {
-//     console.log('Callback query params:', req.query); // Logs the query parameters from Google
-//     next();
-//   },
-//   passport.authenticate('google', { failureRedirect: '/' }),
-//   (req, res) => {
-//     res.redirect('/profile');
-//   }
-// );
-// router.get(
-//   '/google/callback',
-//   passport.authenticate('google', { failureRedirect: '/' }),
-//   (req, res) => {
-//     res.redirect('/profile');
-//   }
-// );
-
+//    '/google',
+//    passport.authenticate('google', { scope: ['profile', 'email'] }) // Specify the required scopes
+//  );
+ 
+//  router.get(
+//    '/google/callback',
+//    passport.authenticate('google', { failureRedirect: '/' }), // Automatically handles OAuth response
+//    (req, res) => {
+//      // Redirect to the profile page or another protected route after login
+//      res.redirect('/profile');
+//    }
+//  );
 
 
 router.get('/github', githubAuth);
